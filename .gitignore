@@ -1,3 +1,13 @@
+#VSCode folder
+.vscode
+
+#Log and checkpoint directory
+log/
+checkpoints/
+
+#Test records
+test-records/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
