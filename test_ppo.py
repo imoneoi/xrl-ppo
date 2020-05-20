@@ -57,8 +57,8 @@ def train_policy(seed):
 
         #collect experience
         train_collector.clear_buffer()
-        #result = train_collector.collect(n_episode=H_episodes_per_step)
-        result = train_collector.collect(n_step=4096)
+        result = train_collector.collect(n_episode=H_episodes_per_step)
+        #result = train_collector.collect(n_step=4096)
         batch = train_collector.get_experience()
 
         #train model
