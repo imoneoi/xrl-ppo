@@ -74,13 +74,13 @@ class PPO(nn.Module):
         batch.action = torch.tensor(batch.action, dtype=torch.float, device=self.net.device)
 
         #normalize reward
-        if self._normalize:
-            #remove dummy items
-            reward_clean = np.array(batch.reward)[np.logical_not(batch.dummy)]
+        # if self._normalize:
+        #     #remove dummy items
+        #     reward_clean = np.array(batch.reward)[np.logical_not(batch.dummy)]
 
-            mean, std = np.mean(reward_clean), np.std(reward_clean)
-            if std > self.__eps:
-                batch.reward = (batch.reward - mean) / std
+        #     mean, std = np.mean(reward_clean), np.std(reward_clean)
+        #     if std > self.__eps:
+        #         batch.reward = (batch.reward - mean) / std
 
         #calculate log(p_{old}) and v
         value    = []
@@ -110,9 +110,9 @@ class PPO(nn.Module):
         #normalize return and advantage
         if self._normalize:
             #normalize returns
-            mean, std = batch.returns.mean(), batch.returns.std()
-            if std > self.__eps:
-                batch.returns = (batch.returns - mean) / std
+            # mean, std = batch.returns.mean(), batch.returns.std()
+            # if std > self.__eps:
+            #     batch.returns = (batch.returns - mean) / std
 
             #normalize advantage
             batch.adv = batch.returns - batch.value
