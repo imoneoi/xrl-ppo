@@ -17,7 +17,7 @@ class Network(nn.Module):
             torch.nn.init.zeros_(linear.bias)
             return linear
 
-        num_hidden = 64
+        num_hidden = 128
         self.feature_net = nn.Sequential(*[
             LinearLayer(np.prod(state_shape), num_hidden),
             nn.ReLU(inplace=True),
